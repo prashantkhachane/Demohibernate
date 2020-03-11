@@ -14,34 +14,23 @@ import com.twilio.type.PhoneNumber;
 public class Test {
 
 	public static void main(String[] args) {
-//		Session session;
-//		session = HibernateUtils.getSessionFactory().openSession();
-//		session.beginTransaction();
-//		Employee employee1 = new Employee();
-//		employee1.setEmpName("Sandip");
-//		employee1.setEmpEmail("Sandip@gmail.com");
-//		employee1.setEmpSalary(16800.3);
-//
-//		Employee employee2 = new Employee();
-//		employee2.setEmpName("Rahul");
-//		employee2.setEmpEmail("Rahul@gmail.com");
-//		employee2.setEmpSalary(12800.3);
-//
-//		session.save(employee1);
-//		session.save(employee2);
-//		session.getTransaction().commit();
+		Session session;
+		session = HibernateUtils.getSessionFactory().openSession();
+		session.beginTransaction();
+		Employee employee1 = new Employee();
+		employee1.setEmpName("Sandip");
+		employee1.setEmpEmail("Sandip@gmail.com");
+		employee1.setEmpSalary(16800.3);
 
-		final String ACCOUNT_SID = "ACea3f638b850352e8d996638e86afee10";
-		final String AUTH_TOKEN = "e5459dcc746c18b5cef20707dd6e04f8";
+		Employee employee2 = new Employee();
+		employee2.setEmpName("Rahul");
+		employee2.setEmpEmail("Rahul@gmail.com");
+		employee2.setEmpSalary(12800.3);
 
-		Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+		session.save(employee1);
+		session.save(employee2);
+		session.getTransaction().commit();
 
-		Message message = Message.creator(new PhoneNumber("+919370362910"), new PhoneNumber("+18136448713"),
-				"Ahoy from Twilio!").create();
-
-		System.out.println(message.getSid());
-		String str = sendSms();
-		System.out.println(str);
 
 	}
 
